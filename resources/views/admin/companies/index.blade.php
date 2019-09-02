@@ -24,6 +24,7 @@
       	</p>
       	<table class="table table-bordered table-striped">
       		<tr>
+            <th>LOGO</th>
       			<th>ID</th>
       			<th>NAME</th>
       			<th>EMAIL</th>
@@ -33,6 +34,7 @@
           @if(count($companies))
       		@foreach($companies as $c)
       		<tr>
+            <td><img src="{{ asset('storage/logos/'.$c->logo) }}" style="width:50px;"></td>
       			<td>{{$c->id}}</td>
       			<td>{{$c->name}}</td>
       			<td>{{$c->email}}</td>
