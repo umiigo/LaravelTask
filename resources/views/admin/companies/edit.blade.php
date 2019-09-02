@@ -19,7 +19,7 @@
 
     <section class="content">
       <div class="container-fluid">
-      	<form method="post" action="{{route('admin.companies.update', $company->id)}}">
+      	<form method="post" action="{{route('admin.companies.update', $company->id)}}" enctype="multipart/form-data">
           @method('PUT')
       		<input type="hidden" name="_token" value= "{{ csrf_token() }}">
       		<div class="form-group">
@@ -43,6 +43,20 @@
       			<div class="clearfix"></div>
       		 </div>
       		</div>
+          
+          <div class="form-group">
+           <div class="row">
+            <label class="col-md-3">Logo</label>
+            <div class="col-md-9"><input type="file" name="logo"></div>
+            <div class="clearfix"></div>
+            @if($company->logo)
+            <div class="col-md-3"></div>
+            <div class="col-md-9">
+              <img src="{{ asset('storage/logos/'.$company->logo) }}" style="width:150px;">
+              <div class="clearfix"></div>
+            @endif
+           </div>
+          </div>
       		<div class="form-group">
       			<input type="submit" class="btn btn-info" value="Save">
       		</div>

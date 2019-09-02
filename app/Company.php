@@ -8,6 +8,6 @@ class Company extends Model
 {
     public function employee()
     {
-    	$this->hasMany('App/Employee');
+    	return $this->hasMany('App\Employee');
     }
 }

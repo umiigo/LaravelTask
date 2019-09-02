@@ -49,6 +49,20 @@
       			<div class="clearfix"></div>
       		 </div>
       		</div>
+          <div class="form-group">
+           <div class="row">
+            <label class="col-md-3">Company</label>
+            <div class="col-md-6">
+              <select name="company_id" class="form-control">
+                <option value="Choose Company"></option>
+                @foreach($companies as $c)
+                  <option value="{{$c->id}}">{{ $c->name}}</option>
+                @endforeach
+              </select>
+            </div>
+            <div class="clearfix"></div>
+           </div>
+          </div>
       		<div class="form-group">
       			<input type="submit" class="btn btn-info" value="Save">
       		</div>

@@ -40,7 +40,7 @@
       			<td>{{$e->last_name}}</td>
       			<td>{{$e->email}}</td>
       			<td>{{$e->phone}}</td>
-      			<th>COMPANY</th>
+      			<td>{{$e->company['name']}}</td>
       			<th>
               <a href="{{route('admin.employees.edit', $e->id)}}" class="btn btn-info">Edit</a>
               <a class="btn btn-danger"href="javascript:void(0)" onclick="$(this).parent().find('form').submit()">Delete</a>

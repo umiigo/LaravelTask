@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Employee;
 use App\Company;
 
 
@@ -41,7 +42,17 @@ class CompanyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, Company $company)
-    {
+    {   
+        if(isset($request->logo) && $request->logo->getClientOriginalName()){
+            $ext = $request->logo->getClientOriginalExtension();
+            $file = date('YmdHis').rand(1,9999).'.'.$ext;
+            $request->logo->storeAs('public/logos', $file);
+        }
+        else
+        {               
+            $file = "";
+        }
+        $company->logo = $file;
         $company->name=$request->name;
         $company->email=$request->email;
         $company->website=$request->website;
@@ -81,7 +92,21 @@ class CompanyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Company $company)
-    {
+    {   
+        if(isset($request->logo) && $request->logo->getClientOriginalName()){
+            $ext = $request->logo->getClientOriginalExtension();
+            $file = date('YmdHis').rand(1,9999).'.'.$ext;
+            $request->logo->storeAs('public/logos', $file);
+        }
+        else
+        {   
+            if(!$company->logo)
+                $file = "";
+            else
+                $file = $company->logo; 
+
+        }
+        $company->logo = $file;
         $company->name=$request->name;
         $company->email=$request->email;
         $company->website=$request->website;

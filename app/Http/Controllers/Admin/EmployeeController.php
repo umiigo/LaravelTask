@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Employee;
+use App\Company;
 
 class EmployeeController extends Controller
 {
@@ -29,8 +30,9 @@ class EmployeeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('admin.employees.create');
+    {   
+        $arr['companies'] = Company::all();
+        return view('admin.employees.create')->with($arr);
     }
 
     /**
@@ -40,7 +42,8 @@ class EmployeeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, Employee $employee)
-    {
+    {   
+        $employee->company_id=$request->company_id;
         $employee->first_name=$request->first_name;
         $employee->last_name=$request->last_name;
         $employee->email=$request->email;
@@ -70,6 +73,7 @@ class EmployeeController extends Controller
     public function edit(Employee $employee)
     {
         $arr['employee'] = $employee;
+        $arr['companies'] = Company::all();
         return view('admin.employees.edit')->with($arr);
 
     }
@@ -82,7 +86,8 @@ class EmployeeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Employee $employee)
-    {
+    {   
+        $employee->company_id=$request->company_id;
         $employee->first_name=$request->first_name;
         $employee->last_name=$request->last_name;
         $employee->email=$request->email;
