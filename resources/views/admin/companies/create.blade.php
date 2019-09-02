@@ -19,7 +19,7 @@
 
     <section class="content">
       <div class="container-fluid">
-      	<form method="post" action="{{route('admin.companies.store')}}">
+      	<form method="post" action="{{route('admin.companies.store')}}" enctype="multipart/form-data">
       		<input type="hidden" name="_token" value= "{{ csrf_token() }}">
       		<div class="form-group">
       		 <div class="row">
@@ -42,6 +42,13 @@
       			<div class="clearfix"></div>
       		 </div>
       		</div>
+          <div class="form-group">
+           <div class="row">
+            <label class="col-md-3">Logo</label>
+            <div class="col-md-6"><input type="file" name="logo"></div>
+            <div class="clearfix"></div>
+           </div>
+          </div>
       		<div class="form-group">
       			<input type="submit" class="btn btn-info" value="Save">
       		</div>
