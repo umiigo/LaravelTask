@@ -20,7 +20,7 @@
     <section class="content">
       <div class="container-fluid">
       	<p>
-      		<a href="#" class="btn btn-primary">Add New Employee</a>
+      		<a href="{{route('admin.employees.create')}}" class="btn btn-primary">Add New Employee</a>
       	</p>
       	<table class="table table-bordered table-striped">
       		<tr>
