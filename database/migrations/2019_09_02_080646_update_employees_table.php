@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateCompaniesTable extends Migration
+class UpdateEmployeesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class UpdateCompaniesTable extends Migration
      */
     public function up()
     {
-        Schema::table('companies', function (Blueprint $table) {
-            $table->string('logo')->nullable();
+        Schema::table('employees', function (Blueprint $table) {
+            $table->integer('company_id')->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ class UpdateCompaniesTable extends Migration
      */
     public function down()
     {
-        Schema::table('companies', function (Blueprint $table) {
-            $table->dropColumn('logo');
+        Schema::table('employees', function (Blueprint $table) {
+            $table->dropColumn('company_id');
         });
     }
 }
