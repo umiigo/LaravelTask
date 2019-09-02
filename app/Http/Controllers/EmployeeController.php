@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Employee;
 
-class EmployeesController extends Controller
+class EmployeeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class EmployeesController extends Controller
      */
     public function index()
     {
-        //
+        $arr['employees'] = Employee::all();
+        return view('admin.employees.index')->with($arr);
     }
 
     /**
