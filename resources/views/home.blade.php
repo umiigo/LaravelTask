@@ -35,7 +35,8 @@
               <div class="icon">
                 <i class="ion ion-home"></i>
               </div>
-              
+                <a href="{{route('admin.companies.index')}}" class="small-box-footer"><i class="fas fa-list"></i>&nbsp&nbsp View Companies</a>
+                <a href="{{route('admin.companies.create')}}" class="small-box-footer"><i class="fas fa-plus-square"></i>&nbsp&nbsp Add Company</a>
             </div>
           </div>
           <!-- ./col -->
@@ -48,64 +49,20 @@
                 <h3>{{$employees->count()}}</h3>
 
                 <p>Employees</p>
+
               </div>
               <div class="icon">
                 <i class="ion ion-person"></i>
               </div>
+               <a href="{{route('admin.employees.index')}}" class="small-box-footer"><i class="fas fa-list"></i>&nbsp&nbsp View Employees</a>
+                <a href="{{route('admin.employees.create')}}" class="small-box-footer"><i class="fas fa-plus-square"></i>&nbsp&nbsp Add Employee</a>
             </div>
           </div>
           <!-- ./col -->
         </div>
-        <!-- /.row -->
-        <!-- Main row -->
-        
-          <!-- /.Left col -->
-          <!-- right col (We are only adding the ID to make the widgets sortable)-->
-          <section class="col-lg-5 connectedSortable">
-
-          
-            <!-- /.card -->  
-          </section>
-          <!-- right col -->
         </div>
         <!-- /.row (main row) -->
 
-
-        <div class="row">
-          <div class="col-md-2 col-sm-6 col-12">
-          </div>
-          <!-- /.col -->
-          <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box">
-              <span class="info-box-icon bg-info"><i class="far fa-plus-square"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Add New</span>
-                <span class="info-box-text">Company</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-          <div class="col-md-2 col-sm-6 col-12">
-          </div>
-          <!-- /.col -->
-          <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box">
-              <span class="info-box-icon bg-danger"><i class="far fa-plus-square"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Add New</span>
-                <span class="info-box-text">Employee</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-        </div>
-        <!-- /.row -->
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
