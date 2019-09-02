@@ -53,21 +53,34 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                               
+                                <div class="clearfix"></div>
+
+                            </div>
+                           
+                        </div>
+                    </form>
+
+                </div>
+                    <button type="submit" class="btn btn-success float-right">
                                     {{ __('Login') }}
                                 </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <div class="clearfix"></div>
+               
+    </div>
+            <button class="btn btn-danger float-left" >
+                                    <a href="/" class="btn-link-primary text-white">Back</a>
+                                </button>
+                                   @if (Route::has('password.request'))
+                                    <a class="btn btn-primary float-right" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
             </div>
+
+
+            
         </div>
-    </div>
+
 </div>
 @endsection

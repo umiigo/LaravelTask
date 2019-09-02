@@ -22,3 +22,6 @@ Route::get('/admin/employees', 'EmployeeController@index')->name('admin.employee
 Route::resource('/admin/employees', 'Admin\EmployeeController', ['as'=>'admin']);
 Route::resource('/admin/companies', 'Admin\CompanyController', ['as'=>'admin']);
 
+Route::get('/companies', 'User\CompanyController@index')->name('companies');
+Route::get('/employees', 'User\EmployeeController@index')->name('employees');
+
