@@ -32,6 +32,7 @@
       			<th>COMPANY</th>
       			<th>ACTION</th>
       		</tr>
+          @if(count($employees))
       		@foreach($employees as $e)
       		<tr>
       			<td>{{$e->id}}</td>
@@ -50,6 +51,9 @@
             </th>
       		</tr>
       		@endforeach
+          @else
+          <tr><td colspan="12">No Employees Found</td></tr>
+          @endif
       	</table>
       </div>
     </section>

@@ -9,6 +9,10 @@ use App\Company;
 
 class CompanyController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +20,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        $arr['companies'] = Company::all();
+        return view('admin.companies.index')->with($arr);
     }
 
     /**
@@ -26,7 +31,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.companies.create');
     }
 
     /**
@@ -35,9 +40,14 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Company $company)
     {
-        //
+        $company->name=$request->name;
+        $company->email=$request->email;
+        $company->website=$request->website;
+        $company->save();
+        return redirect()->route('admin.companies.index');
+
     }
 
     /**
@@ -57,9 +67,10 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Company $company)
     {
-        //
+        $arr['company'] = $company;
+        return view('admin.companies.edit')->with($arr);
     }
 
     /**
@@ -69,9 +80,13 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Company $company)
     {
-        //
+        $company->name=$request->name;
+        $company->email=$request->email;
+        $company->website=$request->website;
+        $company->save();
+        return redirect()->route('admin.companies.index');
     }
 
     /**
@@ -82,6 +97,7 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Company::destroy($id);
+        return redirect()->route('admin.companies.index');
     }
 }
