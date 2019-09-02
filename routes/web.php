@@ -20,4 +20,5 @@ Auth::routes();
 Route::get('/admin', 'HomeController@index')->name('home');
 Route::get('/admin/employees', 'EmployeeController@index')->name('admin.employees.index');
 Route::resource('/admin/employees', 'Admin\EmployeeController', ['as'=>'admin']);
+Route::resource('/admin/companies', 'Admin\EmployeeController', ['as'=>'admin']);
 

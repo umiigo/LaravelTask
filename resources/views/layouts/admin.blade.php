@@ -38,12 +38,6 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
     </ul>
 
     <!-- SEARCH FORM -->
@@ -180,8 +174,15 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+          <?php 
+            $segment = Request::segment(2);
+          ?>
           <li class="nav-item">
-            <a href="{{route('home')}}" class="nav-link active">
+            <a href="{{route('home')}}" class="nav-link 
+            @if(!$segment)
+            active
+            @endif
+          ">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -189,42 +190,29 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{route('admin.employees.index')}}" class="nav-link">
+            <a href="{{route('admin.employees.index')}}" class="nav-link
+            @if($segment=='employees')
+            active
+            @endif
+            ">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Employees
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+          <li class="nav-item">
+            <a href="{{route('admin.companies.index')}}" class="nav-link
+            @if($segment=='companies')
+            active
+            @endif
+            ">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Companies
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Simple Tables</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>DataTables</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/tables/jsgrid.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>jsGrid</p>
-                </a>
-              </li>
-            </ul>
           </li>
-         
           <li class="nav-header">LABELS</li>
           <li class="nav-item">
              <a class="nav-link" href="{{ route('logout') }}"
