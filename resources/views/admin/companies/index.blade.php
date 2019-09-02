@@ -51,6 +51,7 @@
           <tr><td colspan="12">No Companies Found</td></tr>
           @endif
       	</table>
+        {{ $companies->render()}}
       </div>
     </section>
 @endsection

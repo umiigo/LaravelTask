@@ -19,7 +19,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $arr['employees'] = Employee::all();
+        $arr['employees'] = Employee::paginate(10);
         return view('admin.employees.index')->with($arr);
     }
 

@@ -55,6 +55,7 @@
           <tr><td colspan="12">No Employees Found</td></tr>
           @endif
       	</table>
+        {{ $employees->render()}}
       </div>
     </section>
 @endsection

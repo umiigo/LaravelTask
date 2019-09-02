@@ -20,7 +20,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $arr['companies'] = Company::all();
+        $arr['companies'] = Company::paginate(10);
         return view('admin.companies.index')->with($arr);
     }
 
