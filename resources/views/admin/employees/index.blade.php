@@ -40,7 +40,14 @@
       			<td>{{$e->email}}</td>
       			<td>{{$e->phone}}</td>
       			<th>COMPANY</th>
-      			<th><a href="#" class="btn btn-info">Edit</a> <a href="#" class="btn btn-danger">Delete</a></th>
+      			<th>
+              <a href="{{route('admin.employees.edit', $e->id)}}" class="btn btn-info">Edit</a>
+              <a class="btn btn-danger"href="javascript:void(0)" onclick="$(this).parent().find('form').submit()">Delete</a>
+                <form method="post" action="{{ route('admin.employees.destroy', $e->id)}}">
+                  @method('DELETE')
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                </form>
+            </th>
       		</tr>
       		@endforeach
       	</table>
